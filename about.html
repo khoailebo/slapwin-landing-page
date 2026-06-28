@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu - Slap PC</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --primary-hover: #e65c00;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-nav .container {
+            max-width: 1000px;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+        }
+
+        .page-hero {
+            padding: 72px 0 36px 0;
+            background: radial-gradient(circle at top, #291100 0%, var(--bg-dark) 65%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero p {
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section {
+            padding: 52px 0 72px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .card h2 {
+            margin-bottom: 14px;
+            font-size: 1.35rem;
+        }
+
+        .card p,
+        .card li {
+            color: #ddd;
+        }
+
+        .card ul {
+            margin-left: 18px;
+        }
+
+        .card li + li {
+            margin-top: 10px;
+        }
+
+        .contact-box {
+            margin-top: 24px;
+            background: rgba(255, 106, 0, 0.1);
+            border-left: 5px solid var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 14px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a href="./index.html" class="brand">SLAP PC</a>
+            <div class="nav-links">
+                <a href="./index.html">Trang chủ</a>
+                <a href="./install-guide.html">Hướng dẫn cài đặt chi tiết</a>
+                <a href="./about.html" class="active" aria-current="page">Giới thiệu</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Giới thiệu về Slap PC</h1>
+                <p>
+                    Slap PC là một ứng dụng Windows nhỏ gọn được tạo ra để biến tiếng vỗ tay hoặc tiếng gõ nhẹ vào máy tính thành âm thanh vui nhộn, giúp giải trí và xả stress trong lúc làm việc.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="content-grid">
+                    <article class="card">
+                        <h2>Slap PC dùng để làm gì?</h2>
+                        <p>
+                            Ứng dụng chạy nền trên Windows, lắng nghe tín hiệu từ microphone và phát ra hiệu ứng âm thanh khi phát hiện những cú vỗ tay hoặc tác động âm thanh phù hợp. Người dùng có thể điều chỉnh độ nhạy và dùng các file âm thanh vui nhộn để cá nhân hóa trải nghiệm.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h2>Nội dung trên website này</h2>
+                        <ul>
+                            <li>Trang chủ giới thiệu tính năng chính của ứng dụng.</li>
+                            <li>Trang hướng dẫn cài đặt chi tiết giúp xử lý các vấn đề liên quan đến microphone và khử ồn trên Windows.</li>
+                            <li>Trang FAQ tổng hợp câu hỏi thường gặp và các bước khắc phục sự cố phổ biến.</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h2>Người phát triển</h2>
+                        <p>
+                            Website và ứng dụng này được phát triển bởi Dung Bui Tuan. Mục tiêu là cung cấp một công cụ nhỏ, dễ dùng và có nội dung hướng dẫn rõ ràng cho người dùng Windows.
+                        </p>
+                    </article>
+                </div>
+
+                <article class="card contact-box">
+                    <h2>Liên hệ</h2>
+                    <p>Zalo: 0966914174</p>
+                    <p>Nếu bạn cần hỗ trợ cài đặt, muốn góp ý tính năng mới hoặc cần trao đổi hợp tác, bạn có thể liên hệ trực tiếp qua thông tin trên.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Developed by Dung Bui Tuan</p>
+        <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
+        <div class="footer-links">
+            <a href="./about.html">Giới thiệu</a>
+            <a href="./privacy.html">Chính sách riêng tư</a>
+            <a href="./faq.html">FAQ & Khắc phục sự cố</a>
+        </div>
+    </footer>
+</body>
+</html>

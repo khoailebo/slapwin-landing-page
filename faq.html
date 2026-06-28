@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Khắc phục sự cố - Slap PC</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-nav .container {
+            max-width: 1000px;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+        }
+
+        .page-hero {
+            padding: 72px 0 36px 0;
+            background: radial-gradient(circle at top, #291100 0%, var(--bg-dark) 65%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero p {
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section {
+            padding: 52px 0 72px 0;
+        }
+
+        .faq-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .faq-card + .faq-card {
+            margin-top: 18px;
+        }
+
+        .faq-card h2 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .faq-card p,
+        .faq-card li {
+            color: #ddd;
+        }
+
+        .faq-card ul {
+            margin-left: 18px;
+        }
+
+        .faq-card li + li {
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 14px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a href="./index.html" class="brand">SLAP PC</a>
+            <div class="nav-links">
+                <a href="./index.html">Trang chủ</a>
+                <a href="./install-guide.html">Hướng dẫn cài đặt chi tiết</a>
+                <a href="./faq.html" class="active" aria-current="page">FAQ & Khắc phục sự cố</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>FAQ & Khắc phục sự cố</h1>
+                <p>
+                    Đây là trang tổng hợp các câu hỏi thường gặp và những cách xử lý nhanh khi Slap PC chưa hoạt động như mong muốn trên Windows 10 hoặc Windows 11.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <article class="faq-card">
+                    <h2>Slap PC không phát ra âm thanh khi vỗ tay</h2>
+                    <ul>
+                        <li>Kiểm tra xem đúng microphone đã được chọn trong Windows hay chưa.</li>
+                        <li>Tắt các bộ lọc như <b>Audio enhancements</b>, <b>noise cancellation</b> hoặc AI microphone filtering.</li>
+                        <li>Thử tăng hoặc giảm độ nhạy trong ứng dụng để phù hợp với môi trường thực tế.</li>
+                    </ul>
+                </article>
+
+                <article class="faq-card">
+                    <h2>Windows 10 hoặc 11 vẫn lọc mất tiếng vỗ</h2>
+                    <p>
+                        Một số máy dùng đồng thời cả cài đặt của Windows và phần mềm khử ồn của hãng. Nếu đã làm theo hướng dẫn trong Windows mà vẫn không được, hãy kiểm tra thêm MyASUS, Lenovo Vantage, Dell Optimizer hoặc HP Audio Control.
+                    </p>
+                </article>
+
+                <article class="faq-card">
+                    <h2>Nên kiểm tra gì trước khi báo lỗi?</h2>
+                    <ul>
+                        <li>Ứng dụng đã được mở và đang chạy nền.</li>
+                        <li>Microphone không bị tắt trong Windows.</li>
+                        <li>Thiết bị thu âm đúng đang được đặt làm mặc định.</li>
+                        <li>Môi trường không quá ồn khiến ngưỡng nhận diện bị sai.</li>
+                    </ul>
+                </article>
+
+                <article class="faq-card">
+                    <h2>Tôi có thể thêm âm thanh riêng không?</h2>
+                    <p>
+                        Có. Ứng dụng hỗ trợ dùng các file âm thanh riêng để thay thế hoặc bổ sung các hiệu ứng sẵn có. Hãy đảm bảo file âm thanh tương thích với định dạng mà ứng dụng hỗ trợ.
+                    </p>
+                </article>
+
+                <article class="faq-card">
+                    <h2>Khi nào nên xem trang hướng dẫn chi tiết?</h2>
+                    <p>
+                        Nếu ứng dụng không nhận tín hiệu ổn định hoặc laptop của bạn có phần mềm khử ồn tích hợp, hãy mở ngay trang <a href="./install-guide.html" style="color:#ffba00;">hướng dẫn cài đặt chi tiết</a> để làm từng bước.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Developed by Dung Bui Tuan</p>
+        <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
+        <div class="footer-links">
+            <a href="./about.html">Giới thiệu</a>
+            <a href="./privacy.html">Chính sách riêng tư</a>
+            <a href="./faq.html">FAQ & Khắc phục sự cố</a>
+        </div>
+    </footer>
+</body>
+</html>

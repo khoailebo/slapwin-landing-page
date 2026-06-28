@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Không tìm thấy trang</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, #291100 0%, var(--bg-dark) 65%);
+            color: var(--text-light);
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 720px;
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        .primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .secondary {
+            color: #ffba00;
+            border: 1px solid rgba(255, 186, 0, 0.35);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>404</h1>
+        <p>Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.</p>
+        <p>Bạn có thể quay về trang chủ hoặc mở trang hướng dẫn cài đặt chi tiết để tiếp tục.</p>
+        <div class="actions">
+            <a href="./index.html" class="primary">Về trang chủ</a>
+            <a href="./install-guide.html" class="secondary">Mở hướng dẫn chi tiết</a>
+        </div>
+    </div>
+</body>
+</html>

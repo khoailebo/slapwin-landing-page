@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách riêng tư - Slap PC</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --primary-hover: #e65c00;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-nav .container {
+            max-width: 1000px;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+        }
+
+        .page-hero {
+            padding: 72px 0 36px 0;
+            background: radial-gradient(circle at top, #291100 0%, var(--bg-dark) 65%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero p {
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section {
+            padding: 52px 0 72px 0;
+        }
+
+        .policy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .policy-card + .policy-card {
+            margin-top: 18px;
+        }
+
+        .policy-card h2 {
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .policy-card p,
+        .policy-card li {
+            color: #ddd;
+        }
+
+        .policy-card ul {
+            margin-left: 18px;
+        }
+
+        .policy-card li + li {
+            margin-top: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 14px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a href="./index.html" class="brand">SLAP PC</a>
+            <div class="nav-links">
+                <a href="./index.html">Trang chủ</a>
+                <a href="./install-guide.html">Hướng dẫn cài đặt chi tiết</a>
+                <a href="./privacy.html" class="active" aria-current="page">Chính sách riêng tư</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Chính sách riêng tư</h1>
+                <p>
+                    Trang này mô tả cách website Slap PC xử lý dữ liệu cơ bản của người dùng và cách các dịch vụ quảng cáo hoặc phân tích có thể hoạt động khi được tích hợp trong tương lai.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <article class="policy-card">
+                    <h2>1. Phạm vi website</h2>
+                    <p>
+                        Website Slap PC hiện là một website giới thiệu ứng dụng và cung cấp nội dung hướng dẫn sử dụng. Chúng tôi không yêu cầu người dùng tạo tài khoản hay đăng nhập để truy cập nội dung công khai.
+                    </p>
+                </article>
+
+                <article class="policy-card">
+                    <h2>2. Dữ liệu có thể được thu thập tự động</h2>
+                    <p>
+                        Khi bạn truy cập website, một số dữ liệu kỹ thuật cơ bản có thể được thu thập tự động bởi nền tảng lưu trữ, trình duyệt hoặc các dịch vụ bên thứ ba được tích hợp sau này, bao gồm:
+                    </p>
+                    <ul>
+                        <li>Địa chỉ IP và thông tin trình duyệt.</li>
+                        <li>Thông tin thiết bị, hệ điều hành và độ phân giải màn hình.</li>
+                        <li>Dữ liệu nhật ký truy cập, thời gian truy cập và trang đã xem.</li>
+                    </ul>
+                </article>
+
+                <article class="policy-card">
+                    <h2>3. Cookies và công nghệ tương tự</h2>
+                    <p>
+                        Website có thể sử dụng cookies hoặc công nghệ tương tự để cải thiện trải nghiệm người dùng, ghi nhớ tùy chọn truy cập và hỗ trợ đo lường hiệu quả nội dung.
+                    </p>
+                    <p>
+                        Nếu trong tương lai website tích hợp Google AdSense hoặc các dịch vụ quảng cáo tương tự, các bên này có thể sử dụng cookies, web beacons hoặc các công nghệ liên quan để phân phối và đo lường quảng cáo.
+                    </p>
+                </article>
+
+                <article class="policy-card">
+                    <h2>4. Quảng cáo của Google và đối tác bên thứ ba</h2>
+                    <p>
+                        Khi quảng cáo được kích hoạt, Google và các đối tác quảng cáo có thể sử dụng cookies để phân phối quảng cáo dựa trên lượt truy cập của bạn vào website này hoặc các website khác.
+                    </p>
+                    <p>
+                        Người dùng có thể tìm hiểu thêm về cách Google sử dụng thông tin từ các website và ứng dụng tại chính sách của Google, cũng như quản lý tùy chọn quảng cáo cá nhân hóa nếu dịch vụ đó được áp dụng.
+                    </p>
+                </article>
+
+                <article class="policy-card">
+                    <h2>5. Liên kết bên ngoài</h2>
+                    <p>
+                        Website có thể chứa liên kết đến GitHub Releases hoặc các nền tảng bên ngoài. Chúng tôi không kiểm soát nội dung hoặc chính sách riêng tư của các website bên thứ ba đó.
+                    </p>
+                </article>
+
+                <article class="policy-card">
+                    <h2>6. Liên hệ</h2>
+                    <p>
+                        Nếu bạn có câu hỏi về chính sách riêng tư hoặc muốn yêu cầu cập nhật thông tin trên website, vui lòng liên hệ qua Zalo: 0966914174.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Developed by Dung Bui Tuan</p>
+        <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
+        <div class="footer-links">
+            <a href="./about.html">Giới thiệu</a>
+            <a href="./privacy.html">Chính sách riêng tư</a>
+            <a href="./faq.html">FAQ & Khắc phục sự cố</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn cài đặt chi tiết - Slap PC</title>
+    <style>
+        :root {
+            --primary: #ff6a00;
+            --primary-hover: #e65c00;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-nav .container {
+            max-width: 1000px;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+        }
+
+        .page-hero {
+            padding: 72px 0 36px 0;
+            background: radial-gradient(circle at top, #291100 0%, var(--bg-dark) 65%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 14px;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero p {
+            max-width: 760px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .section {
+            padding: 52px 0 72px 0;
+        }
+
+        .system-section {
+            margin-bottom: 42px;
+        }
+
+        .system-header {
+            margin-bottom: 22px;
+        }
+
+        .system-kicker {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            margin-bottom: 14px;
+            border-radius: 999px;
+            background: rgba(255, 106, 0, 0.14);
+            color: #ffba00;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .system-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .system-header p {
+            max-width: 760px;
+            color: var(--text-muted);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .step-card,
+        .vendor-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 24px;
+            transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .step-card:hover,
+        .vendor-card:hover {
+            transform: translateY(-4px);
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            margin-bottom: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6a00, #ffba00);
+            color: #fff;
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .step-card h3,
+        .vendor-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .step-card p,
+        .vendor-card p {
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .guide-image-placeholder {
+            height: 200px;
+            border-radius: 16px;
+            border: 2px dashed rgba(255, 186, 0, 0.45);
+            background: linear-gradient(135deg, rgba(255, 106, 0, 0.12), rgba(255, 186, 0, 0.08));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffba00;
+            font-weight: 700;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .brand-list {
+            margin-left: 18px;
+            color: #ddd;
+        }
+
+        .brand-list li {
+            margin-bottom: 10px;
+        }
+
+        .vendor-card + .vendor-card {
+            margin-top: 16px;
+        }
+
+        .setup-note {
+            margin-top: 26px;
+            background: rgba(255, 106, 0, 0.1);
+            border-left: 5px solid var(--primary);
+            border-radius: 0 15px 15px 0;
+            padding: 22px 24px;
+            color: #ddd;
+        }
+
+        .setup-note strong {
+            color: #ffba00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 14px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .page-hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .guide-image-placeholder {
+                height: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a href="./index.html" class="brand">SLAP PC</a>
+            <div class="nav-links">
+                <a href="./index.html">Trang chủ</a>
+                <a href="./install-guide.html" class="active">Hướng dẫn cài đặt chi tiết</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Hướng dẫn cài đặt chi tiết</h1>
+                <p>
+                    Trang này dành cho trường hợp Slap PC chưa nhận đúng tiếng vỗ tay. Hãy làm lần lượt từng bước dưới đây và chèn ảnh minh họa của bạn vào các khung placeholder tương ứng.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <section class="system-section">
+                    <div class="system-header">
+                        <div class="system-kicker">Windows 11</div>
+                        <h2>Hướng dẫn cài đặt chi tiết cho Windows 11</h2>
+                        <p>
+                            Làm theo từng bước bên dưới. Mỗi bước có một khung ảnh riêng để bạn chèn đúng screenshot tương ứng.
+                        </p>
+                    </div>
+
+                    <div class="steps-grid">
+                        <article class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Mở Settings</h3>
+                            <p>Nhấn tổ hợp phím <b>Win + I</b> để mở cửa sổ <b>Settings</b> của Windows 11.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 1<br>
+                                Windows 11 - Mở Settings
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Vào mục Sound</h3>
+                            <p>Trong menu bên trái, chọn <b>System</b>, sau đó bấm vào <b>Sound</b>.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 2<br>
+                                Windows 11 - System > Sound
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Chọn microphone đang dùng</h3>
+                            <p>Kéo xuống phần <b>Input</b> rồi chọn đúng microphone mà Slap PC sẽ sử dụng.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 3<br>
+                                Windows 11 - Chọn microphone
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Tắt Audio Enhancements</h3>
+                            <p>Tại phần cài đặt microphone, tìm mục <b>Audio enhancements</b> và chuyển sang <b>Off</b>.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 4<br>
+                                Windows 11 - Tắt Audio enhancements
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="system-section">
+                    <div class="system-header">
+                        <div class="system-kicker">Windows 10</div>
+                        <h2>Hướng dẫn cài đặt chi tiết cho Windows 10</h2>
+                        <p>
+                            Với Windows 10, hãy đi theo đúng luồng <b>Recording > Microphone > Properties > Advanced</b>. Mỗi bước dưới đây cần một ảnh riêng.
+                        </p>
+                    </div>
+
+                    <div class="steps-grid">
+                        <article class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Mở Control Panel</h3>
+                            <p>Mở menu Start, tìm <b>Control Panel</b>, sau đó mở ứng dụng này lên.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 1<br>
+                                Windows 10 - Mở Control Panel
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Vào mục Sound</h3>
+                            <p>Trong <b>Control Panel</b>, chọn <b>Sound</b> để mở cửa sổ thiết bị âm thanh.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 2<br>
+                                Windows 10 - Chọn Sound
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Mở tab Recording</h3>
+                            <p>Trong cửa sổ <b>Sound</b>, bấm sang tab <b>Recording</b> để xem danh sách microphone.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 3<br>
+                                Windows 10 - Tab Recording
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">4</div>
+                            <h3>Chọn microphone và mở Properties</h3>
+                            <p>Chọn đúng <b>Microphone</b> đang dùng, rồi bấm <b>Properties</b>.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 4<br>
+                                Windows 10 - Microphone Properties
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">5</div>
+                            <h3>Vào tab Advanced</h3>
+                            <p>Trong cửa sổ thuộc tính microphone, chuyển sang tab <b>Advanced</b>.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 5<br>
+                                Windows 10 - Tab Advanced
+                            </div>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">6</div>
+                            <h3>Tắt audio enhancement và lưu lại</h3>
+                            <p>Tắt tùy chọn audio enhancement trong tab <b>Advanced</b>, sau đó bấm <b>Apply</b> rồi <b>OK</b>.</p>
+                            <div class="guide-image-placeholder">
+                                Placeholder ảnh bước 6<br>
+                                Windows 10 - Tắt audio enhancement
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="system-section">
+                    <div class="system-header">
+                        <div class="system-kicker">Laptop hãng</div>
+                        <h2>Tắt lọc ồn trong phần mềm của hãng laptop</h2>
+                        <p>
+                            Phần này không cần ảnh mẫu. Chỉ cần mở đúng ứng dụng của hãng và tắt tính năng lọc ồn tương ứng.
+                        </p>
+                    </div>
+
+                    <article class="vendor-card">
+                        <h3>ASUS / Lenovo / Dell / HP</h3>
+                        <p>
+                            Nhiều laptop cài sẵn AI khử ồn cho microphone và đây thường là nguyên nhân khiến Slap PC không bắt được tiếng vỗ tay.
+                        </p>
+                        <ul class="brand-list">
+                            <li><b>ASUS:</b> Mở <i>MyASUS</i> hoặc <i>Armoury Crate</i> và tắt <b>AI Noise-Canceling Microphone</b>.</li>
+                            <li><b>Lenovo:</b> Mở <i>Lenovo Vantage</i>, vào <b>Device</b> rồi tắt <b>Microphone Noise Cancellation</b>.</li>
+                            <li><b>Dell:</b> Mở <i>Dell Optimizer</i> và tắt các mục lọc ồn microphone.</li>
+                            <li><b>HP:</b> Mở <i>HP Audio Control</i> rồi tắt các tính năng giảm tạp âm tương tự.</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <div class="setup-note">
+                    <strong>Lưu ý cuối:</strong> Sau khi tắt các bộ lọc, hãy mở lại Slap PC và thử tăng hoặc giảm độ nhạy để app nhận tín hiệu ổn định hơn.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Developed by Dung Bui Tuan</p>
+        <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
+        <div class="footer-links">
+            <a href="./about.html">Giới thiệu</a>
+            <a href="./privacy.html">Chính sách riêng tư</a>
+            <a href="./faq.html">FAQ & Khắc phục sự cố</a>
+        </div>
+    </footer>
+</body>
+</html>
