@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hướng dẫn cài đặt chi tiết - Slap PC</title>
+    <title>Hướng dẫn thiết lập chi tiết - Slap PC</title>
     <style>
         :root {
             --primary: #ff6a00;
@@ -196,19 +196,92 @@
             margin-bottom: 14px;
         }
 
-        .guide-image-placeholder {
-            height: 200px;
+        .guide-image {
+            display: block;
+            width: 100%;
+            height: auto;
             border-radius: 16px;
-            border: 2px dashed rgba(255, 186, 0, 0.45);
-            background: linear-gradient(135deg, rgba(255, 106, 0, 0.12), rgba(255, 186, 0, 0.08));
-            display: flex;
+            border: 1px solid rgba(255, 186, 0, 0.22);
+            background: #101010;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+            margin-bottom: 16px;
+            cursor: zoom-in;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .guide-image:hover {
+            transform: scale(1.02);
+            border-color: rgba(255, 186, 0, 0.55);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.32);
+        }
+
+        .image-hint {
+            margin-top: -6px;
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+            color: #ffba00;
+        }
+
+        .image-lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: #ffba00;
-            font-weight: 700;
-            padding: 20px;
-            margin-bottom: 16px;
+            padding: 24px;
+            background: rgba(5, 5, 5, 0.88);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+        }
+
+        .image-lightbox.is-open {
+            display: flex;
+        }
+
+        .lightbox-dialog {
+            position: relative;
+            width: min(1100px, 100%);
+            max-height: 100%;
+            padding: 18px;
+            border-radius: 22px;
+            background: #121212;
+            border: 1px solid rgba(255, 186, 0, 0.22);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 106, 0, 0.22);
+        }
+
+        .lightbox-image {
+            display: block;
+            width: 100%;
+            max-height: 76vh;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #0c0c0c;
+        }
+
+        .lightbox-caption {
+            margin-top: 12px;
+            padding-right: 48px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         .brand-list {
@@ -278,8 +351,17 @@
                 font-size: 2.3rem;
             }
 
-            .guide-image-placeholder {
-                height: 170px;
+            .image-lightbox {
+                padding: 14px;
+            }
+
+            .lightbox-dialog {
+                padding: 14px;
+                border-radius: 18px;
+            }
+
+            .lightbox-image {
+                max-height: 68vh;
             }
         }
     </style>
@@ -290,7 +372,7 @@
             <a href="./index.html" class="brand">SLAP PC</a>
             <div class="nav-links">
                 <a href="./index.html">Trang chủ</a>
-                <a href="./install-guide.html" class="active">Hướng dẫn cài đặt chi tiết</a>
+                <a href="./install-guide.html" class="active">Hướng dẫn thiết lập chi tiết</a>
             </div>
         </div>
     </nav>
@@ -298,7 +380,7 @@
     <main>
         <section class="page-hero">
             <div class="container">
-                <h1>Hướng dẫn cài đặt chi tiết</h1>
+                <h1>Hướng dẫn thiết lập chi tiết</h1>
                 <p>
                     Trang này dành cho trường hợp Slap PC chưa nhận đúng tiếng vỗ tay. Hãy làm lần lượt từng bước dưới đây và chèn ảnh minh họa của bạn vào các khung placeholder tương ứng.
                 </p>
@@ -309,8 +391,44 @@
             <div class="container">
                 <section class="system-section">
                     <div class="system-header">
+                        <div class="system-kicker">Mở installer</div>
+                        <h2>Xử lý màn hình cảnh báo xanh khi mở installer.exe</h2>
+                        <p>
+                            Nếu Windows hiển thị màn hình xanh kiểu <b>Windows protected your PC</b>, đây thường là cảnh báo SmartScreen do file cài đặt còn mới hoặc có độ reputation thấp, không nhất thiết là file bị lỗi.
+                        </p>
+                    </div>
+
+                    <div class="steps-grid">
+                        <article class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Mở file cài đặt như bình thường</h3>
+                            <p>Nhấp đúp vào file <b>slapwin-installer.exe</b>. Nếu Windows chặn lại và hiện màn hình xanh, bạn tiếp tục sang bước tiếp theo.</p>
+                            <img src="./assets/install-guide/smartscreen-step-1.png" alt="Minh họa bước mở file slapwin-installer.exe trong Windows" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Bấm More info</h3>
+                            <p>Trong màn hình cảnh báo xanh, bấm vào nút hoặc dòng chữ <b>More info</b> để mở thêm tùy chọn chạy file.</p>
+                            <img src="./assets/install-guide/smartscreen-step-2.png" alt="Minh họa nút More info trong cảnh báo SmartScreen của Windows" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
+                        </article>
+
+                        <article class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Chọn Run anyway</h3>
+                            <p>Sau khi hiện thêm tùy chọn, bấm <b>Run anyway</b> để tiếp tục chạy bộ cài. Chỉ làm bước này nếu bạn tải file từ đúng nguồn phát hành của Slap PC.</p>
+                            <img src="./assets/install-guide/smartscreen-step-3.png" alt="Minh họa nút Run anyway trong cảnh báo SmartScreen của Windows" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="system-section">
+                    <div class="system-header">
                         <div class="system-kicker">Windows 11</div>
-                        <h2>Hướng dẫn cài đặt chi tiết cho Windows 11</h2>
+                        <h2>Hướng dẫn thiết lập chi tiết cho Windows 11</h2>
                         <p>
                             Làm theo từng bước bên dưới. Mỗi bước có một khung ảnh riêng để bạn chèn đúng screenshot tương ứng.
                         </p>
@@ -321,40 +439,32 @@
                             <div class="step-number">1</div>
                             <h3>Mở Settings</h3>
                             <p>Nhấn tổ hợp phím <b>Win + I</b> để mở cửa sổ <b>Settings</b> của Windows 11.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 1<br>
-                                Windows 11 - Mở Settings
-                            </div>
+                            <img src="./assets/install-guide/win11-step-1.png" alt="Minh họa mở Settings trên Windows 11" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">2</div>
                             <h3>Vào mục Sound</h3>
                             <p>Trong menu bên trái, chọn <b>System</b>, sau đó bấm vào <b>Sound</b>.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 2<br>
-                                Windows 11 - System > Sound
-                            </div>
+                            <img src="./assets/install-guide/win11-step-2.png" alt="Minh họa đường dẫn System đến Sound trong Windows 11 Settings" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">3</div>
                             <h3>Chọn microphone đang dùng</h3>
                             <p>Kéo xuống phần <b>Input</b> rồi chọn đúng microphone mà Slap PC sẽ sử dụng.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 3<br>
-                                Windows 11 - Chọn microphone
-                            </div>
+                            <img src="./assets/install-guide/win11-step-3.png" alt="Minh họa chọn microphone trong phần Input của Windows 11" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">4</div>
                             <h3>Tắt Audio Enhancements</h3>
                             <p>Tại phần cài đặt microphone, tìm mục <b>Audio enhancements</b> và chuyển sang <b>Off</b>.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 4<br>
-                                Windows 11 - Tắt Audio enhancements
-                            </div>
+                            <img src="./assets/install-guide/win11-step-4.png" alt="Minh họa tắt Audio enhancements trên Windows 11" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
                     </div>
                 </section>
@@ -362,7 +472,7 @@
                 <section class="system-section">
                     <div class="system-header">
                         <div class="system-kicker">Windows 10</div>
-                        <h2>Hướng dẫn cài đặt chi tiết cho Windows 10</h2>
+                        <h2>Hướng dẫn thiết lập chi tiết cho Windows 10</h2>
                         <p>
                             Với Windows 10, hãy đi theo đúng luồng <b>Recording > Microphone > Properties > Advanced</b>. Mỗi bước dưới đây cần một ảnh riêng.
                         </p>
@@ -373,60 +483,48 @@
                             <div class="step-number">1</div>
                             <h3>Mở Control Panel</h3>
                             <p>Mở menu Start, tìm <b>Control Panel</b>, sau đó mở ứng dụng này lên.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 1<br>
-                                Windows 10 - Mở Control Panel
-                            </div>
+                            <img src="./assets/install-guide/win10-step-1.png" alt="Minh họa tìm và mở Control Panel trên Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">2</div>
                             <h3>Vào mục Sound</h3>
                             <p>Trong <b>Control Panel</b>, chọn <b>Sound</b> để mở cửa sổ thiết bị âm thanh.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 2<br>
-                                Windows 10 - Chọn Sound
-                            </div>
+                            <img src="./assets/install-guide/win10-step-2.png" alt="Minh họa chọn mục Sound trong Control Panel của Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">3</div>
                             <h3>Mở tab Recording</h3>
                             <p>Trong cửa sổ <b>Sound</b>, bấm sang tab <b>Recording</b> để xem danh sách microphone.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 3<br>
-                                Windows 10 - Tab Recording
-                            </div>
+                            <img src="./assets/install-guide/win10-step-3.png" alt="Minh họa tab Recording trong cửa sổ Sound của Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">4</div>
                             <h3>Chọn microphone và mở Properties</h3>
                             <p>Chọn đúng <b>Microphone</b> đang dùng, rồi bấm <b>Properties</b>.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 4<br>
-                                Windows 10 - Microphone Properties
-                            </div>
+                            <img src="./assets/install-guide/win10-step-4.png" alt="Minh họa chọn Microphone và mở Properties trong Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">5</div>
                             <h3>Vào tab Advanced</h3>
                             <p>Trong cửa sổ thuộc tính microphone, chuyển sang tab <b>Advanced</b>.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 5<br>
-                                Windows 10 - Tab Advanced
-                            </div>
+                            <img src="./assets/install-guide/win10-step-5.png" alt="Minh họa tab Advanced trong thuộc tính microphone của Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
 
                         <article class="step-card">
                             <div class="step-number">6</div>
                             <h3>Tắt audio enhancement và lưu lại</h3>
                             <p>Tắt tùy chọn audio enhancement trong tab <b>Advanced</b>, sau đó bấm <b>Apply</b> rồi <b>OK</b>.</p>
-                            <div class="guide-image-placeholder">
-                                Placeholder ảnh bước 6<br>
-                                Windows 10 - Tắt audio enhancement
-                            </div>
+                            <img src="./assets/install-guide/win10-step-6.png" alt="Minh họa tắt audio enhancement và lưu lại trong Windows 10" class="guide-image" loading="lazy">
+                            <p class="image-hint">Bấm vào ảnh để xem lớn hơn.</p>
                         </article>
                     </div>
                 </section>
@@ -461,6 +559,14 @@
         </section>
     </main>
 
+    <div class="image-lightbox" id="image-lightbox" aria-hidden="true">
+        <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Xem ảnh lớn">
+            <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Đóng ảnh lớn">×</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 Developed by Dung Bui Tuan</p>
         <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
@@ -470,5 +576,47 @@
             <a href="./faq.html">FAQ & Khắc phục sự cố</a>
         </div>
     </footer>
+
+    <script>
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const guideImages = document.querySelectorAll('.guide-image');
+
+        function closeLightbox() {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImage.src = '';
+            lightboxImage.alt = '';
+            lightboxCaption.textContent = '';
+            document.body.style.overflow = '';
+        }
+
+        guideImages.forEach((image) => {
+            image.addEventListener('click', () => {
+                lightboxImage.src = image.src;
+                lightboxImage.alt = image.alt;
+                lightboxCaption.textContent = image.alt;
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
