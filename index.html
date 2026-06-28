@@ -27,7 +27,6 @@
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         .container {
@@ -36,7 +35,65 @@
             padding: 0 20px;
         }
 
-        /* --- HERO SECTION --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-nav .container {
+            max-width: 1000px;
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 12px 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            background: linear-gradient(45deg, #ff6a00, #ffba00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+        }
+
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -67,19 +124,23 @@
             margin: 0 auto 35px auto;
         }
 
-        .btn-download {
+        .btn-download,
+        .btn-detail {
             display: inline-block;
-            background-color: var(--primary);
             color: #fff;
-            padding: 16px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
             transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .btn-download {
+            background-color: var(--primary);
+            padding: 16px 40px;
+            font-size: 1.2rem;
             box-shadow: 0 5px 20px rgba(255, 106, 0, 0.4);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .btn-download:hover {
@@ -88,7 +149,22 @@
             box-shadow: 0 8px 25px rgba(255, 106, 0, 0.6);
         }
 
-        /* --- FEATURES --- */
+        .btn-detail {
+            margin-top: 24px;
+            padding: 14px 28px;
+            font-size: 0.98rem;
+            background: transparent;
+            border: 1px solid rgba(255, 186, 0, 0.35);
+            color: #ffba00;
+        }
+
+        .btn-detail:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            background: rgba(255, 106, 0, 0.12);
+            color: #fff;
+        }
+
         .section {
             padding: 70px 0;
         }
@@ -96,7 +172,7 @@
         .section-title {
             text-align: center;
             font-size: 2.2rem;
-            margin-bottom: 50px;
+            margin-bottom: 24px;
             color: var(--text-light);
         }
 
@@ -110,13 +186,18 @@
             gap: 30px;
         }
 
-        .feature-card {
+        .feature-card,
+        .setup-box,
+        .donate-box {
             background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card {
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .feature-card:hover {
@@ -136,50 +217,50 @@
             color: var(--primary);
         }
 
-        /* --- SETUP INSTRUCTIONS (WARNING) --- */
         .setup-box {
-            background-color: rgba(255, 106, 0, 0.1);
-            border-left: 5px solid var(--primary);
             padding: 35px;
+            border-left: 5px solid var(--primary);
             border-radius: 0 15px 15px 0;
+            background: linear-gradient(180deg, rgba(255, 106, 0, 0.08), rgba(255, 106, 0, 0.03));
         }
 
         .setup-box h3 {
             color: var(--primary);
             font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        .setup-box p {
+            color: var(--text-muted);
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .step-list {
             list-style: none;
-            counter-reset: my-counter;
+            counter-reset: setup-step;
         }
 
         .step-list li {
             position: relative;
-            margin-bottom: 20px;
-            padding-left: 45px;
-            font-size: 1.1rem;
+            padding-left: 46px;
+            margin-bottom: 18px;
             color: #ddd;
         }
 
         .step-list li::before {
-            counter-increment: my-counter;
-            content: counter(my-counter);
+            counter-increment: setup-step;
+            content: counter(setup-step);
             position: absolute;
             left: 0;
-            top: -2px;
+            top: 0;
             width: 30px;
             height: 30px;
-            background-color: var(--primary);
-            color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: var(--primary);
+            color: #fff;
             font-weight: bold;
         }
 
@@ -188,7 +269,6 @@
             font-weight: bold;
         }
 
-        /* --- DONATE SECTION --- */
         .donate-section {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-color);
@@ -202,7 +282,8 @@
             background-color: #121212;
             padding: 40px;
             border-radius: 20px;
-            border: 2px dashed var(--border-color);
+            border-style: dashed;
+            border-width: 2px;
         }
 
         .donate-box:hover {
@@ -217,7 +298,6 @@
             border: 3px solid var(--primary);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 30px;
@@ -225,90 +305,128 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin-top: 14px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-            .setup-box { padding: 20px; }
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .setup-box,
+            .donate-box {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <section class="hero">
-        <div class="container">
-            <img src="SlapWin_final.png" alt="Slap PC Logo" class="hero-logo" onerror="this.src='https://via.placeholder.com/180x180/FF6B00/FFFFFF?text=SLAP+PC'">
-            <h1>SLAP PC 💥</h1>
-            <p>Biến những cú vỗ tay hay vỗ vào vỏ máy tính thành những âm thanh giải xả stress cực đỉnh. Ứng dụng chạy ngầm siêu nhẹ dành riêng cho Windows.</p>
-            <a href="https://github.com/khoailebo/slap-win/releases/download/Demo/slapwin-installer.exe" class="btn-download">⬇️ TẢI XUỐNG BẢN CÀI ĐẶT</a>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">Hỗ trợ Windows 10 & 11</p>
-        </div>
-    </section>
-
-    <section class="section container">
-        <h2 class="section-title">Tại sao bạn sẽ <span>thích</span> Slap PC?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎧</div>
-                <h3>Lắng nghe tự động</h3>
-                <p>App tự động chạy ngầm và lắng nghe qua Microphone. Chỉ cần vỗ tay hoặc vỗ nhẹ vào vỏ PC/Laptop, âm thanh sẽ phát ra ngay lập tức.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎛️</div>
-                <h3>Tùy chỉnh độ nhạy</h3>
-                <p>Môi trường ồn ào? Không sao cả! Kéo thanh trượt để điều chỉnh ngưỡng độ nhạy (Threshold) phù hợp với không gian phòng của bạn.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📂</div>
-                <h3>Âm thanh độc lạ</h3>
-                <p>Tích hợp sẵn các âm thanh cực "troll" và cho phép bạn tự thêm các file .WAV của riêng mình một cách dễ dàng.</p>
+    <nav class="top-nav">
+        <div class="container nav-inner">
+            <a href="./index.html" class="brand">SLAP PC</a>
+            <div class="nav-links">
+                <a href="./index.html" class="active" aria-current="page">Trang chủ</a>
+                <a href="./install-guide.html">Hướng dẫn cài đặt chi tiết</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section class="section container">
-        <div class="setup-box">
-            <h3>⚠️ THIẾT LẬP BẮT BUỘC ĐỂ APP HOẠT ĐỘNG</h3>
-            <p style="margin-bottom: 25px; color: var(--text-muted);">
-                Các hệ điều hành Windows đời mới thường có tính năng tự động lọc tiếng ồn, khiến các tiếng "vỗ" bị khử mất trước khi truyền vào App. Hãy làm theo các bước sau:
-            </p>
-            <ol class="step-list">
-                <li>
-                    <span class="highlight-text">Cách 1 - Trên Windows 11 (Giao diện mới):</span><br> 
-                    Mở <b>Settings</b> (Phím Win + I) -> <b>System</b> -> <b>Sound</b>. Kéo xuống phần <b>Input</b>, click vào Microphone bạn đang dùng. Tại dòng <b>Audio enhancements</b>, hãy chuyển sang chế độ <b>Off</b>.
-                </li>
-                <li>
-                    <span class="highlight-text">Cách 2 - Trên Windows 10 (Control Panel cũ):</span><br>
-                    Mở <b>Control Panel</b> -> Chọn <b>Sound</b> -> Chuyển sang tab <b>Recording</b>. Click đúp chuột vào Microphone -> Chọn tab <b>Enhancements</b> (nếu có) -> Tích chọn ô <b>"Disable all enhancements"</b> -> Bấm OK.
-                </li>
-                <li>
-                    <span class="highlight-text">⚠️ BƯỚC QUAN TRỌNG NHẤT (Dành riêng cho Laptop):</span><br>
-                    Các hãng Laptop hiện nay đều cài sẵn phần mềm khử ồn AI "cứng đầu" chặn đứng mọi tiếng vỗ tay. Bạn BẮT BUỘC phải mở phần mềm quản lý của hãng lên và TẮT tính năng lọc ồn:
-                    <ul style="list-style-type: disc; margin-top: 10px; margin-left: 20px; color: #ccc;">
-                        <li><b>Laptop ASUS:</b> Mở app <i>MyASUS</i> hoặc <i>Armoury Crate</i> -> Tắt <b>"AI Noise-Canceling Microphone"</b>.</li>
-                        <li><b>Laptop Lenovo:</b> Mở app <i>Lenovo Vantage</i> -> Device -> Smart Noise Cancelling -> Tắt <b>"Microphone Noise Cancellation"</b>.</li>
-                        <li><b>Laptop Dell/HP:</b> Mở <i>Dell Optimizer</i> hoặc <i>HP Audio Control</i> và tắt các tính năng lọc tạp âm tương tự.</li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
-    </section>
-
-    <section class="section donate-section">
-        <div class="container">
-            <h2 class="section-title">💖 Ủng hộ <span>Tác giả</span></h2>
-            <div class="donate-box">
-                <p>Slap PC được phát triển hoàn toàn miễn phí. Nếu ứng dụng này giúp bạn có những tràng cười sảng khoái và xả stress sau giờ làm việc...</p>
-                <img src="qr_image.jpg" alt="Mã QR Donate" onerror="this.src='https://via.placeholder.com/200x200/222222/FF6B00?text=QR+CODE'">
-                <p style="font-weight: bold; color: var(--primary); font-size: 1.1rem;">Hãy mời Dev một ly cafe để có sức code tiếp nhé! ☕</p>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <img src="./assets/SlapWin_final.png" alt="Slap PC Logo" class="hero-logo">
+                <h1>SLAP PC 💥</h1>
+                <p>Biến những cú vỗ tay hay vỗ vào vỏ máy tính thành những âm thanh giải xả stress cực đỉnh. Ứng dụng chạy ngầm siêu nhẹ dành riêng cho Windows.</p>
+                <a href="https://github.com/khoailebo/slap-win/releases/download/Demo/slapwin-installer.exe" class="btn-download">⬇️ TẢI XUỐNG BẢN CÀI ĐẶT</a>
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">Hỗ trợ Windows 10 & 11</p>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="section container">
+            <h2 class="section-title">Tại sao bạn sẽ <span>thích</span> Slap PC?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎧</div>
+                    <h3>Lắng nghe tự động</h3>
+                    <p>App tự động chạy ngầm và lắng nghe qua Microphone. Chỉ cần vỗ tay hoặc vỗ nhẹ vào vỏ PC/Laptop, âm thanh sẽ phát ra ngay lập tức.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎛️</div>
+                    <h3>Tùy chỉnh độ nhạy</h3>
+                    <p>Môi trường ồn ào? Không sao cả! Kéo thanh trượt để điều chỉnh ngưỡng độ nhạy (Threshold) phù hợp với không gian phòng của bạn.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📂</div>
+                    <h3>Âm thanh độc lạ</h3>
+                    <p>Tích hợp sẵn các âm thanh cực "troll" và cho phép bạn tự thêm các file .WAV của riêng mình một cách dễ dàng.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="setup-box">
+                <h3>⚠️ THIẾT LẬP BẮT BUỘC ĐỂ APP HOẠT ĐỘNG</h3>
+                <p>
+                    Các phiên bản Windows mới và phần mềm đi kèm laptop thường tự lọc tiếng ồn, khiến tiếng vỗ bị khử mất trước khi truyền vào app.
+                </p>
+                <ol class="step-list">
+                    <li><span class="highlight-text">Windows 11:</span> Vào <b>Settings</b> → <b>System</b> → <b>Sound</b>, chọn microphone đang dùng và tắt <b>Audio enhancements</b>.</li>
+                    <li><span class="highlight-text">Windows 10:</span> Mở <b>Control Panel</b> → <b>Sound</b> → tab <b>Recording</b>, chọn microphone → <b>Properties</b> → tab <b>Advanced</b> và tắt audio enhancement.</li>
+                    <li><span class="highlight-text">Laptop ASUS / Lenovo / Dell / HP:</span> Mở app quản lý của hãng và tắt các tính năng <b>noise cancellation</b> hoặc <b>AI microphone filtering</b>.</li>
+                </ol>
+                <a href="./install-guide.html" class="btn-detail">XEM HƯỚNG DẪN CÀI ĐẶT CHI TIẾT</a>
+            </div>
+        </section>
+
+        <section class="section donate-section">
+            <div class="container">
+                <h2 class="section-title">💖 Ủng hộ <span>Tác giả</span></h2>
+                <div class="donate-box">
+                    <p>Slap PC được phát triển hoàn toàn miễn phí. Nếu ứng dụng này giúp bạn có những tràng cười sảng khoái và xả stress sau giờ làm việc...</p>
+                    <img src="./assets/qr_image.jpg" alt="Mã QR Donate">
+                    <p style="font-weight: bold; color: var(--primary); font-size: 1.1rem;">Hãy mời Dev một ly cafe để có sức code tiếp nhé! ☕</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>© 2026 Developed by Dung Bui Tuan</p>
         <p style="margin-top: 5px;">Liên hệ hợp tác Zalo: 0966914174</p>
+        <div class="footer-links">
+            <a href="./about.html">Giới thiệu</a>
+            <a href="./privacy.html">Chính sách riêng tư</a>
+            <a href="./faq.html">FAQ & Khắc phục sự cố</a>
+        </div>
     </footer>
-
 </body>
 </html>
